@@ -7,8 +7,9 @@ public class InfiniteArray {
         int target = 10;
         System.out.println(ans(arr, target));
     }
-
     // Function to find the position of the target element in the infinite sorted array
+
+
     static int ans(int[] arr, int target) {
         // Initialize the search space
         int start = 0;
@@ -28,7 +29,22 @@ public class InfiniteArray {
     // Binary search function to find the target element within a given range
     static int binarySearch(int[] arr, int target, int start, int end) {
         while (start <= end) {
-            // Calculate the middle index
+            // Calculate the middl
+            start = temp;
+
+            // Check if the end index is greater than or equal to the array size
+            if (end >= arr.length) {
+                end = arr.length - 1;
+                break;
+            }
+        }
+        return binarySearch(arr, target, start, end);
+    }
+
+    static int binarySearch(int[] arr, int target, int start, int end) {
+        while (start <= end) {
+            // find the middle element
+            // int mid = (start + end) / 2; // might be possible that (start + end) exceeds the range of int in java
             int mid = start + (end - start) / 2;
 
             if (target < arr[mid]) {
